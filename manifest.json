@@ -3,7 +3,7 @@
   "name": "BaekjoonHubFF",
   "description": "BaekjoonHub for Firefox",
   "homepage_url": "https://github.com/ohbeomho/BaekjoonHubFF",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "author": "flaxinger",
   "action": {
     "default_icon": "assets/thumbnail.png",
