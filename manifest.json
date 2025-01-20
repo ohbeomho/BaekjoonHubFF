@@ -81,5 +81,10 @@
       "js": ["library/sha1.min.js", "scripts/util.js", "scripts/Github.js", "scripts/authorize.js", "scripts/storage.js", "scripts/enable.js", "scripts/goormlevel/variables.js", "scripts/goormlevel/util.js", "scripts/goormlevel/parsing.js", "scripts/goormlevel/uploadfunctions.js", "scripts/goormlevel/goormlevel.js"],
       "run_at": "document_idle"
     }
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "baekjoonhub-ff"
+    }
+  }
 }
