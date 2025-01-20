@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "BaekjoonHubFF",
-  "description": "Automatically integrate your BOJ submissions to GitHub",
-  "homepage_url": "https://github.com/BaekjoonHub/BaekjoonHub",
+  "description": "BaekjoonHub for Firefox",
+  "homepage_url": "https://github.com/ohbeomho/BaekjoonHubFF",
   "version": "1.2.3",
   "author": "flaxinger",
   "action": {
