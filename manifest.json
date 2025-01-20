@@ -15,7 +15,8 @@
     "128": "assets/thumbnail.png"
   },
   "background": {
-    "service_worker": "scripts/background.js"
+    "service_worker": "scripts/background.js",
+    "scripts": ["scripts/background.js"]
   },
   "declarative_net_request": {
     "rule_resources": [
@@ -26,54 +27,23 @@
       }
     ]
   },
-  "permissions": [
-    "unlimitedStorage",
-    "storage",
-    "declarativeNetRequest",
-    "declarativeNetRequestWithHostAccess"
-  ],
-  "host_permissions": [
-    "https://www.acmicpc.net/",
-    "https://school.programmers.co.kr/",
-    "https://github.com/",
-    "https://swexpertacademy.com/",
-    "https://solved.ac/api/v3/*",
-    "https://level.goorm.io/"
-  ],
+  "permissions": ["unlimitedStorage", "storage", "declarativeNetRequest", "declarativeNetRequestWithHostAccess", "webNavigation"],
+  "host_permissions": ["https://www.acmicpc.net/", "https://school.programmers.co.kr/", "https://github.com/", "https://swexpertacademy.com/", "https://solved.ac/api/v3/*", "https://level.goorm.io/"],
   "web_accessible_resources": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
-      "resources": [
-        "library/jquery-3.3.1.min.js",
-        "library/semantic.min.js",
-        "popup.html",
-        "popup.js",
-        "welcome.html",
-        "welcome.js"
-      ]
+      "matches": ["*://*/*/"],
+      "resources": ["library/jquery-3.3.1.min.js", "library/semantic.min.js", "popup.html", "popup.js", "welcome.html", "welcome.js"]
     }
   ],
   "content_scripts": [
     {
-      "matches": [
-        "https://github.com/*"
-      ],
-      "js": [
-        "scripts/util.js",
-        "scripts/Github.js",
-        "scripts/authorize.js"
-      ],
+      "matches": ["https://github.com/*"],
+      "js": ["scripts/util.js", "scripts/Github.js", "scripts/authorize.js"],
       "run_at": "document_idle"
     },
     {
-      "matches": [
-        "https://www.acmicpc.net/*"
-      ],
-      "css": [
-        "css/baekjoon/inject.css"
-      ],
+      "matches": ["https://www.acmicpc.net/*"],
+      "css": ["css/baekjoon/inject.css"],
       "js": [
         "library/sha1.min.js",
         "library/jszip.min.js",
@@ -94,70 +64,21 @@
       "run_at": "document_idle"
     },
     {
-      "matches": [
-        "https://school.programmers.co.kr/*"
-      ],
-      "css": [
-        "css/programmers/inject.css"
-      ],
-      "js": [
-        "library/sha1.min.js",
-        "scripts/util.js",
-        "scripts/Github.js",
-        "scripts/authorize.js",
-        "scripts/storage.js",
-        "scripts/enable.js",
-        "scripts/programmers/variables.js",
-        "scripts/programmers/util.js",
-        "scripts/programmers/parsing.js",
-        "scripts/programmers/uploadfunctions.js",
-        "scripts/programmers/programmers.js"
-      ],
+      "matches": ["https://school.programmers.co.kr/*"],
+      "css": ["css/programmers/inject.css"],
+      "js": ["library/sha1.min.js", "scripts/util.js", "scripts/Github.js", "scripts/authorize.js", "scripts/storage.js", "scripts/enable.js", "scripts/programmers/variables.js", "scripts/programmers/util.js", "scripts/programmers/parsing.js", "scripts/programmers/uploadfunctions.js", "scripts/programmers/programmers.js"],
       "run_at": "document_idle"
     },
     {
-      "matches": [
-        "https://swexpertacademy.com/*"
-      ],
-      "css": [
-        "css/swexpertacademy/inject.css"
-      ],
-      "js": [
-        "library/sha1.min.js",
-        "scripts/util.js",
-        "scripts/Github.js",
-        "scripts/authorize.js",
-        "scripts/storage.js",
-        "scripts/enable.js",
-        "scripts/swexpertacademy/storage.js",
-        "scripts/swexpertacademy/variables.js",
-        "scripts/swexpertacademy/util.js",
-        "scripts/swexpertacademy/parsing.js",
-        "scripts/swexpertacademy/uploadfunctions.js",
-        "scripts/swexpertacademy/swexpertacademy.js"
-      ],
+      "matches": ["https://swexpertacademy.com/*"],
+      "css": ["css/swexpertacademy/inject.css"],
+      "js": ["library/sha1.min.js", "scripts/util.js", "scripts/Github.js", "scripts/authorize.js", "scripts/storage.js", "scripts/enable.js", "scripts/swexpertacademy/storage.js", "scripts/swexpertacademy/variables.js", "scripts/swexpertacademy/util.js", "scripts/swexpertacademy/parsing.js", "scripts/swexpertacademy/uploadfunctions.js", "scripts/swexpertacademy/swexpertacademy.js"],
       "run_at": "document_idle"
     },
     {
-      "matches": [
-        "https://level.goorm.io/*"
-      ],
-      "css": [
-        "css/goormlevel/inject.css"
-      ],
-      "js": [
-        "library/sha1.min.js",
-        "scripts/util.js",
-        "scripts/Github.js",
-        "scripts/authorize.js",
-        "scripts/storage.js",
-        "scripts/enable.js",
-        "scripts/goormlevel/variables.js",
-        "scripts/goormlevel/util.js",
-        "scripts/goormlevel/parsing.js",
-        "scripts/goormlevel/uploadfunctions.js",
-        "scripts/goormlevel/goormlevel.js"
-      ],
+      "matches": ["https://level.goorm.io/*"],
+      "css": ["css/goormlevel/inject.css"],
+      "js": ["library/sha1.min.js", "scripts/util.js", "scripts/Github.js", "scripts/authorize.js", "scripts/storage.js", "scripts/enable.js", "scripts/goormlevel/variables.js", "scripts/goormlevel/util.js", "scripts/goormlevel/parsing.js", "scripts/goormlevel/uploadfunctions.js", "scripts/goormlevel/goormlevel.js"],
       "run_at": "document_idle"
     }
   ]

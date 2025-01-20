@@ -10,8 +10,10 @@ $('#authenticate').on('click', () => {
 });
 
 /* Get URL for welcome page */
-$('#welcome_URL').attr('href', `chrome-extension://${chrome.runtime.id}/welcome.html`);
-$('#hook_URL').attr('href', `chrome-extension://${chrome.runtime.id}/welcome.html`);
+$('#welcome_URL').attr('href', browser.runtime.getURL(`welcome.html`));
+$('#hook_URL').on('click', () => {
+  chrome.tabs.create({ url: browser.runtime.getURL(`welcome.html`) });
+});
 
 chrome.storage.local.get('BaekjoonHub_token', (data) => {
   const token = data.BaekjoonHub_token;
@@ -64,16 +66,15 @@ chrome.storage.local.get('BaekjoonHub_token', (data) => {
 chrome.storage.local.get('bjhEnable', (data4) => {
   if (data4.bjhEnable === undefined) {
     $('#onffbox').prop('checked', true);
-    chrome.storage.local.set({ 'bjhEnable': $('#onffbox').is(':checked') }, () => { });
-  }
-  else {
+    chrome.storage.local.set({ bjhEnable: $('#onffbox').is(':checked') }, () => {});
+  } else {
     $('#onffbox').prop('checked', data4.bjhEnable);
-    chrome.storage.local.set({ 'bjhEnable': $('#onffbox').is(':checked') }, () => { });
+    chrome.storage.local.set({ bjhEnable: $('#onffbox').is(':checked') }, () => {});
   }
-})
+});
 /*
   활성화 버튼 클릭 시 storage에 활성 여부 데이터를 저장.
  */
 $('#onffbox').on('click', () => {
-  chrome.storage.local.set({ 'bjhEnable': $('#onffbox').is(':checked') }, () => { });
+  chrome.storage.local.set({ bjhEnable: $('#onffbox').is(':checked') }, () => {});
 });

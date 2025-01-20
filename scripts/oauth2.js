@@ -28,7 +28,7 @@ const oAuth2 = {
     chrome.storage.local.set({ pipe_baekjoonhub: true }, () => {
       // opening pipe temporarily
 
-      chrome.tabs.create({ url, selected: true }, function () {
+      chrome.tabs.create({ url }, function () {
         window.close();
         chrome.tabs.getCurrent(function (tab) {
           // chrome.tabs.remove(tab.id, function () {});
